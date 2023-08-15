@@ -1,0 +1,85 @@
+Console Test Web API
+
+--------------------------------------------------------------------------------------------------------------
+Get Contacts
+
+HTTP GET http://localhost:5122/api/Contacts
+
+Contact Id:     1       BirthDate:      1/1/1971        Name:           Angelo Daniel Chioreanu
+  Email Id:     1       IsPrimary:      True            Address:        angelodanielchioreanu1@gmail.com
+  Email Id:     2       IsPrimary:      False           Address:        angelodanielchioreanu2@gmail.com
+  Email Id:     3       IsPrimary:      False           Address:        angelodanielchioreanu3@gmail.com
+
+Contact Id:     2       BirthDate:      2/2/1972        Name:           John Smith
+  Email Id:     4       IsPrimary:      True            Address:        johnsmith1@gmail.com
+  Email Id:     5       IsPrimary:      False           Address:        johnsmith2@gmail.com
+
+--------------------------------------------------------------------------------------------------------------
+Get Contact Id: 1
+
+HTTP GET http://localhost:5122/api/Contacts/1
+
+Contact Id:     1       BirthDate:      1/1/1971        Name:           Angelo Daniel Chioreanu
+  Email Id:     1       IsPrimary:      True            Address:        angelodanielchioreanu1@gmail.com
+  Email Id:     2       IsPrimary:      False           Address:        angelodanielchioreanu2@gmail.com
+  Email Id:     3       IsPrimary:      False           Address:        angelodanielchioreanu3@gmail.com
+--------------------------------------------------------------------------------------------------------------
+Update Contact: {"id":1,"name":"Angelo Daniel Chioreanu [M]","birthDate":"1971-01-01","emails":[{"id":1,"isPrimary":true,"address":"angelodanielchioreanu1@gmail.com"},{"id":2,"isPrimary":false,"address":"angelodanielchioreanu2@gmail.com"},{"id":3,"isPrimary":false,"address":"angelodanielchioreanu3@gmail.com"}]}
+
+HTTP PUT http://localhost:5122/api/Contacts/1
+
+--------------------------------------------------------------------------------------------------------------
+Add Contact: {"id":0,"name":"George Parker","birthDate":"1973-03-03","emails":[{"id":0,"isPrimary":true,"address":"george.parker.e1@gmail.com"},{"id":0,"isPrimary":false,"address":"george.parker.e2@gmail.com"}]}
+
+HTTP POST http://localhost:5122/api/Contacts
+
+--------------------------------------------------------------------------------------------------------------
+Add Contact: {"id":0,"name":"Jack Box","birthDate":"1974-04-04","emails":[{"id":0,"isPrimary":true,"address":"jack.box.e1@gmail.com"},{"id":0,"isPrimary":true,"address":"jack.box.e2@gmail.com"}]}
+
+HTTP POST http://localhost:5122/api/Contacts
+
+Failed to Add Contact.
+--------------------------------------------------------------------------------------------------------------
+Get Contacts By Date
+
+HTTP GET http://localhost:5122/api/Contacts/birthDateMin=1972-02-02/birthDateMax=1973-03-03
+
+Contact Id:     2       BirthDate:      2/2/1972        Name:           John Smith
+  Email Id:     4       IsPrimary:      True            Address:        johnsmith1@gmail.com
+  Email Id:     5       IsPrimary:      False           Address:        johnsmith2@gmail.com
+
+Contact Id:     3       BirthDate:      3/3/1973        Name:           George Parker
+  Email Id:     6       IsPrimary:      True            Address:        george.parker.e1@gmail.com
+  Email Id:     7       IsPrimary:      False           Address:        george.parker.e2@gmail.com
+
+--------------------------------------------------------------------------------------------------------------
+Get Contacts By Name
+
+HTTP GET http://localhost:5122/api/Contacts/name=George%20Parker
+
+Contact Id:     3       BirthDate:      3/3/1973        Name:           George Parker
+  Email Id:     6       IsPrimary:      True            Address:        george.parker.e1@gmail.com
+  Email Id:     7       IsPrimary:      False           Address:        george.parker.e2@gmail.com
+
+--------------------------------------------------------------------------------------------------------------
+Delete Contact Id: 3
+
+HTTP DELETE http://localhost:5122/api/Contacts/3
+
+--------------------------------------------------------------------------------------------------------------
+Get Contacts
+
+HTTP GET http://localhost:5122/api/Contacts
+
+Contact Id:     1       BirthDate:      1/1/1971        Name:           Angelo Daniel Chioreanu [M]
+  Email Id:     1       IsPrimary:      True            Address:        angelodanielchioreanu1@gmail.com
+  Email Id:     2       IsPrimary:      False           Address:        angelodanielchioreanu2@gmail.com
+  Email Id:     3       IsPrimary:      False           Address:        angelodanielchioreanu3@gmail.com
+
+Contact Id:     2       BirthDate:      2/2/1972        Name:           John Smith
+  Email Id:     4       IsPrimary:      True            Address:        johnsmith1@gmail.com
+  Email Id:     5       IsPrimary:      False           Address:        johnsmith2@gmail.com
+
+--------------------------------------------------------------------------------------------------------------
+
+Program End.
